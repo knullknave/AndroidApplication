@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">MedicBook</string>
+    <string name="action_settings">Settings</string>
+    <string name="register_medic">Registrar Médico</string>
+    <string name="register_patient">Registrar Paciente</string>
+    <string name="login">Login</string>
+    <string name="user">Nombre de usuario</string>
+    <string name="title_activity_register_medic">RegisterMedicActivity</string>
+    <string name="password">Contraseña</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellidos</string>
+    <string name="phone">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="email">Dirección de correo electrónico</string>
+    <string name="medSpeciality">Especialización Médica</string>
+    <string name="postalcode">Código postal</string>
+    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="medicalcentre">Centro médico</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="title_activity_register_patient">RegisterPatientActivity</string>
+    <string name="medic">Médico</string>
+    <string name="patient">Paciente</string>
+    <string name="whoareyou">¿Quién eres?</string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
+</resources>
