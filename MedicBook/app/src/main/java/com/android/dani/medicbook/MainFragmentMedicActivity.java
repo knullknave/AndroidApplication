@@ -40,8 +40,5 @@ public class MainFragmentMedicActivity extends ActionBarActivity
         actionBar.addTab(consult);
         actionBar.addTab(newC);
         actionBar.addTab(infoM);
-
-        EditText text = (EditText) getView().findViewById(R.id.editText);
-        text.setText("5555");
     }
 }
