@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.dani.medicbook" >
 
-    <uses-permission android:name="android.permission.READ_OWNER_DATA"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_goku_kanji_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
@@ -27,6 +27,30 @@
         <activity
             android:name=".RegisterPatientActivity"
             android:label="@string/title_activity_register_patient" >
+        </activity>
+        <activity
+            android:name=".ConfigurationActivity"
+            android:label="@string/title_activity_configuration" >
+        </activity>
+        <activity
+            android:name=".FragmentTestActivity"
+            android:label="@string/title_activity_fragment_test" >
+        </activity>
+        <activity
+            android:name=".MainFragmentActivity"
+            android:label="@string/title_activity_main_fragment" >
+        </activity>
+        <activity
+            android:name=".ConsultsActivity"
+            android:label="@string/title_activity_consults" >
+        </activity>
+        <activity
+            android:name=".NewConsultMedicActivity"
+            android:label="@string/title_activity_new_medic" >
+        </activity>
+        <activity
+            android:name=".InfoMedicActivity"
+            android:label="@string/title_activity_info_medic" >
         </activity>
     </application>
 

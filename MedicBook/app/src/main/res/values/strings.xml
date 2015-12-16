@@ -24,4 +24,15 @@
     <string name="whoareyou">¿Quién eres?</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
+    <string name="settings">Configuración</string>
+    <string name="title_activity_configuration">ConfigurationActivity</string>
+    <string name="title_activity_fragment_test">FragmentTestActivity</string>
+    <string name="title_activity_main_fragment_test">MainFragmentTestActivity</string>
+    <string name="title_activity_main_fragment">MainFragmentActivity</string>
+    <string name="title_activity_consults">ConsultsActivity</string>
+    <string name="consults">Consultas</string>
+    <string name="title_activity_new_medic">NewMedicActivity</string>
+    <string name="title_activity_info_medic">InfoMedicActivity</string>
+    <string name="newconsult">Nuevo</string>
+    <string name="infomedic">Información del médico</string>
 </resources>

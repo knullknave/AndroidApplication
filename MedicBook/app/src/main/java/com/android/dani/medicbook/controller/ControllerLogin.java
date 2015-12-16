@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.android.dani.medicbook.LoginActivity;
+import com.android.dani.medicbook.MainFragmentActivity;
 import com.android.dani.medicbook.R;
 import com.android.dani.medicbook.RegisterMedicActivity;
 import com.android.dani.medicbook.RegisterPatientActivity;
@@ -32,6 +33,9 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
 
         Button btnRP = (Button) la.findViewById(R.id.btnRegisterPatient);
         btnRP.setOnClickListener(this);
+
+        Button btnLog = (Button) la.findViewById(R.id.btnLogin);
+        btnLog.setOnClickListener(this);
 
         etUser = (EditText) la.findViewById(R.id.etUser);
         etUser.setOnClickListener(this);
@@ -62,6 +66,7 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
                 }
                 else
                 {
+                    //TODO DO NOT LET TO INTRODUCE SPACeS
                     if(etUser.getText().toString().trim().equals("") || etPassword.getText().toString().trim().equals(""))
                     {
                         //TODO PLEASE FILL EACH FIELD
@@ -69,6 +74,8 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
                     else
                     {
                         //TODO LOGIN
+                        Intent intent = new Intent(la, MainFragmentActivity.class);
+                        la.startActivity(intent);
                     }
                 }
                 break;

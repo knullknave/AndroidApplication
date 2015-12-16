@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import com.android.dani.medicbook.controller.ControllerMedicRegister;
@@ -24,6 +26,28 @@ public class RegisterMedicActivity extends ActionBarActivity
         setContentView(R.layout.activity_register_medic);
 
         cmr = new ControllerMedicRegister(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:
+                Intent intent = new Intent(this, ConfigurationActivity.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
