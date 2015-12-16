@@ -2,6 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".LoginActivity">
 
+    <item android:id="@+id/action_about" android:title="@string/about"
+        android:orderInCategory="100" app:showAsAction="always" android:icon="@drawable/ic_about_icon"></item>
     <item android:id="@+id/action_settings" android:title="@string/settings"
         android:orderInCategory="100" app:showAsAction="always" android:icon="@drawable/ic_setting_bar_1"/>
 </menu>

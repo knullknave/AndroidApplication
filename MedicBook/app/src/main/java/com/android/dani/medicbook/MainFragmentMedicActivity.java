@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.EditText;
 
 import com.android.dani.medicbook.controller.TabListener;
 

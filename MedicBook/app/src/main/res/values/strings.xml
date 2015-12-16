@@ -38,4 +38,10 @@
     <string name="visitdate">Fecha de visita</string>
     <string name="selectmedcentre">Seleccione un centro médico</string>
     <string name="title_activity_main_fragment_patient">MainFragmentPatientActivity</string>
+    <string name="title_activity_consults_patient">ConsultsPatientActivity</string>
+    <string name="title_activity_new_consult_patient">NewConsultPatientActivity</string>
+    <string name="title_activity_info_patient">InfoPatientActivity</string>
+    <string name="infopatient">Información del paciente</string>
+    <string name="about">Acerca de</string>
+    <string name="title_activity_about">AboutActivity</string>
 </resources>

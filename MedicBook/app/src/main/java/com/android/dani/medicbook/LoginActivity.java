@@ -35,6 +35,10 @@ public class LoginActivity extends ActionBarActivity
                 Intent intent = new Intent(this, ConfigurationActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_about:
+                Intent intent2 = new Intent(this, AboutActivity.class);
+                startActivity(intent2);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

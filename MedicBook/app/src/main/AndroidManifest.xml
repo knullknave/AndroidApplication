@@ -56,6 +56,22 @@
             android:name=".MainFragmentPatientActivity"
             android:label="@string/title_activity_main_fragment_patient" >
         </activity>
+        <activity
+            android:name=".ConsultsPatientActivity"
+            android:label="@string/title_activity_consults_patient" >
+        </activity>
+        <activity
+            android:name=".NewConsultPatientActivity"
+            android:label="@string/title_activity_new_consult_patient" >
+        </activity>
+        <activity
+            android:name=".InfoPatientActivity"
+            android:label="@string/title_activity_info_patient" >
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about" >
+        </activity>
     </application>
 
 </manifest>

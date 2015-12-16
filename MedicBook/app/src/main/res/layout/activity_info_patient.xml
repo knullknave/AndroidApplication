@@ -5,7 +5,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.android.dani.medicbook.RegisterMedicActivity">
+    tools:context="com.android.dani.medicbook.InfoPatientActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             <ImageButton
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:id="@+id/imageButton"
+                android:id="@+id/imageButton3"
                 android:layout_weight="0.15"
                 android:layout_marginBottom="40dp"
                 android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/etUser"
+                android:id="@+id/editText16"
                 android:text="@string/user" />
 
             <EditText
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/etPassword"
+                android:id="@+id/editText17"
                 android:text="@string/password" />
 
             <EditText
@@ -46,7 +46,7 @@
                 android:inputType="textPersonName"
                 android:text="@string/name"
                 android:ems="10"
-                android:id="@+id/etName" />
+                android:id="@+id/editText18" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -54,14 +54,14 @@
                 android:inputType="textPersonName"
                 android:text="@string/surname"
                 android:ems="10"
-                android:id="@+id/etSurname" />
+                android:id="@+id/editText19" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="10"
-                android:id="@+id/etPhone"
+                android:id="@+id/editText20"
                 android:text="@string/phone" />
 
             <EditText
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
                 android:ems="10"
-                android:id="@+id/etAddress"
+                android:id="@+id/editText21"
                 android:text="@string/address" />
 
             <EditText
@@ -77,21 +77,15 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/etEmail"
+                android:id="@+id/editText22"
                 android:text="@string/email" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etMedSpec"
-                android:text="@string/medSpeciality" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/etPostalCode"
+                android:id="@+id/editText23"
                 android:text="@string/postalcode" />
 
             <EditText
@@ -99,24 +93,54 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
-                android:id="@+id/etBirthDate"
+                android:id="@+id/editText24"
                 android:text="@string/birthdate" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etMedicCentre"
-                android:text="@string/medicalcentre" />
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="43dp"
+                android:stretchColumns="1" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@+id/radioButton"
+                        android:layout_column="0"
+                        android:layout_span="3" >
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/male"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/female"
+                            android:checked="false" />
+                    </RadioGroup>
+                </TableRow>
+            </TableLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="222dp" >
+                android:layout_height="278dp" >
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/accept"
-                    android:id="@+id/btAccept"
+                    android:id="@+id/button5"
                     android:layout_marginStart="136dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true" />
@@ -125,12 +149,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cancel"
-                    android:id="@+id/btCancel"
-                    android:layout_alignTop="@+id/btAccept"
-                    android:layout_toEndOf="@+id/btAccept"
-                    android:layout_marginStart="122dp" />
+                    android:id="@+id/button6"
+                    android:layout_marginStart="120dp"
+                    android:layout_alignTop="@+id/button5"
+                    android:layout_toEndOf="@+id/button5" />
             </RelativeLayout>
-
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

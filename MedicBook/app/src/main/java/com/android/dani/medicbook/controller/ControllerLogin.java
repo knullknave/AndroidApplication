@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 import com.android.dani.medicbook.LoginActivity;
 import com.android.dani.medicbook.MainFragmentMedicActivity;
+import com.android.dani.medicbook.MainFragmentPatientActivity;
 import com.android.dani.medicbook.R;
 import com.android.dani.medicbook.RegisterMedicActivity;
 import com.android.dani.medicbook.RegisterPatientActivity;
@@ -75,7 +76,8 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
                     {
                         if(posSpinner.equals(la.getResources().getString(R.string.patient)))
                         {
-                            
+                            Intent intent2 = new Intent(la, MainFragmentPatientActivity.class);
+                            la.startActivity(intent2);
                         }
                         else
                         {
