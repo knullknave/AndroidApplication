@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.dani.medicbook.controller.ControllerLogin;
+import com.android.dani.medicbook.model.Model;
 
 public class LoginActivity extends ActionBarActivity
 {
@@ -17,6 +18,9 @@ public class LoginActivity extends ActionBarActivity
         setContentView(R.layout.activity_login);
 
         ControllerLogin cl = new ControllerLogin(this);
+
+        //Model m = new Model(this);
+        //m.Connect("192.168.223.254","root","");
     }
 
     @Override
