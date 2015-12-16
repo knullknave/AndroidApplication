@@ -37,7 +37,7 @@
             android:label="@string/title_activity_fragment_test" >
         </activity>
         <activity
-            android:name=".MainFragmentActivity"
+            android:name=".MainFragmentMedicActivity"
             android:label="@string/title_activity_main_fragment" >
         </activity>
         <activity
@@ -51,6 +51,10 @@
         <activity
             android:name=".InfoMedicActivity"
             android:label="@string/title_activity_info_medic" >
+        </activity>
+        <activity
+            android:name=".MainFragmentPatientActivity"
+            android:label="@string/title_activity_main_fragment_patient" >
         </activity>
     </application>
 

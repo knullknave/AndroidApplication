@@ -7,7 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 
 import com.android.dani.medicbook.controller.TabListener;
 
-public class MainFragmentActivity extends ActionBarActivity
+public class MainFragmentPatientActivity extends ActionBarActivity
 {
     ActionBar.Tab consult, newC, infoM;
     Fragment consults = new ConsultsMedicActivity();
@@ -18,7 +18,7 @@ public class MainFragmentActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_fragment);
+        setContentView(R.layout.activity_main_fragment_medic);
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowHomeEnabled(false);

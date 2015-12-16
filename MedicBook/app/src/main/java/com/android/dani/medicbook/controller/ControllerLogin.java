@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.android.dani.medicbook.LoginActivity;
-import com.android.dani.medicbook.MainFragmentActivity;
+import com.android.dani.medicbook.MainFragmentMedicActivity;
 import com.android.dani.medicbook.R;
 import com.android.dani.medicbook.RegisterMedicActivity;
 import com.android.dani.medicbook.RegisterPatientActivity;
@@ -73,9 +73,15 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
                     }
                     else
                     {
-                        //TODO LOGIN
-                        Intent intent = new Intent(la, MainFragmentActivity.class);
-                        la.startActivity(intent);
+                        if(posSpinner.equals(la.getResources().getString(R.string.patient)))
+                        {
+                            
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(la, MainFragmentMedicActivity.class);
+                            la.startActivity(intent);
+                        }
                     }
                 }
                 break;

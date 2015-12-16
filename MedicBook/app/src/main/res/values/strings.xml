@@ -35,4 +35,7 @@
     <string name="title_activity_info_medic">InfoMedicActivity</string>
     <string name="newconsult">Nuevo</string>
     <string name="infomedic">Información del médico</string>
+    <string name="visitdate">Fecha de visita</string>
+    <string name="selectmedcentre">Seleccione un centro médico</string>
+    <string name="title_activity_main_fragment_patient">MainFragmentPatientActivity</string>
 </resources>
