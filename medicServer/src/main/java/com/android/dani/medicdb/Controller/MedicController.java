@@ -30,15 +30,15 @@ public class MedicController
     }
 
     @RequestMapping("/add_medic")
-    public void addMedic(@RequestParam(value = "userName") String userName,
-                         @RequestParam(value = "userPassword") String userPassword,
-                         @RequestParam(value = "name") String name,
-                         @RequestParam(value = "surname") String surname,
-                         @RequestParam(value = "adress") String adress,
-                         @RequestParam(value = "medicalCentre") String medicalCentre,
-                         @RequestParam(value = "email") String email,
-                         @RequestParam(value = "medicalSpeciality") String medicalSpeciality,
-                         @RequestParam(value = "telephone") String telephone,
+    public void addMedic(@RequestParam(value = "userName", defaultValue = "nada") String userName,
+                         @RequestParam(value = "userPassword", defaultValue = "nada") String userPassword,
+                         @RequestParam(value = "name", defaultValue = "nada") String name,
+                         @RequestParam(value = "surname", defaultValue = "nada") String surname,
+                         @RequestParam(value = "adress", defaultValue = "nada") String adress,
+                         @RequestParam(value = "medicalCentre", defaultValue = "nada") String medicalCentre,
+                         @RequestParam(value = "email", defaultValue = "nada") String email,
+                         @RequestParam(value = "medicalSpeciality", defaultValue = "nada") String medicalSpeciality,
+                         @RequestParam(value = "telephone", defaultValue = "nada") String telephone,
                          @RequestParam(value = "birthDate") Date birthDate)
     {
         Medic m = new Medic();
