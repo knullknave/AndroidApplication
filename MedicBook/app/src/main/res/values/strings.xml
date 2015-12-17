@@ -44,4 +44,5 @@
     <string name="infopatient">Información del paciente</string>
     <string name="about">Acerca de</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_prueba_fondo">PruebaFondo</string>
 </resources>
