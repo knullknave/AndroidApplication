@@ -97,7 +97,7 @@ class Medic
     private String userPassword;
     @Column
     private String name;
-    @Column
+    @Column(name = "surname")
     private String surname;
     @Column
     private String adress;
