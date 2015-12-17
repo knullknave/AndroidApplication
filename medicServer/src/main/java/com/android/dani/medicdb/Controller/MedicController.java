@@ -1,3 +1,4 @@
+/*
 package com.android.dani.medicdb.Controller;
 
 import com.android.dani.medicdb.Medic;
@@ -56,3 +57,4 @@ public class MedicController
         repository.save(m);
     }
 }
+*/

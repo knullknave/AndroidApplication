@@ -5,10 +5,10 @@ import com.sun.javafx.beans.IDProperty;
 import javax.persistence.*;
 import java.util.Date;
 
+/*
 @Entity
 @Table(name = "medic")
-public class Medic
-{
+public class Medic {
     @Id
     @GeneratedValue
     private int collegiateNumber;
@@ -33,118 +33,100 @@ public class Medic
     @Column
     private Date birthDate;
 
-    public Medic()
-    {
+    public Medic() {
 
     }
 
-    public int getCollegiateNumber()
-    {
+    public int getCollegiateNumber() {
         return collegiateNumber;
     }
 
-    public void setCollegiateNumber(int collegiateNumber)
-    {
+    public void setCollegiateNumber(int collegiateNumber) {
         this.collegiateNumber = collegiateNumber;
     }
 
-    public String getUserName()
-    {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName)
-    {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public String getUserPassword()
-    {
+    public String getUserPassword() {
         return userPassword;
     }
 
-    public void setUserPassword(String userPassword)
-    {
+    public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getSurname()
-    {
+    public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname)
-    {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public String getAdress()
-    {
+    public String getAdress() {
         return adress;
     }
 
-    public void setAdress(String adress)
-    {
+    public void setAdress(String adress) {
         this.adress = adress;
     }
 
-    public String getMedicalCentre()
-    {
+    public String getMedicalCentre() {
         return medicalCentre;
     }
 
-    public void setMedicalCentre(String medicalCentre)
-    {
+    public void setMedicalCentre(String medicalCentre) {
         this.medicalCentre = medicalCentre;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getMedicalSpeciality()
-    {
+    public String getMedicalSpeciality() {
         return medicalSpeciality;
     }
 
-    public void setMedicalSpeciality(String medicalSpeciality)
-    {
+    public void setMedicalSpeciality(String medicalSpeciality) {
         this.medicalSpeciality = medicalSpeciality;
     }
 
-    public String getTelephone()
-    {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone)
-    {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    public Date getBirthDate()
-    {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate)
-    {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+    public String toString() {
+        return userName + " " + userPassword + " " + name + " " + surname + " " + adress + " " + medicalCentre + " " + email + " " + medicalSpeciality + " " + telephone + " " + birthDate;
+    }
 }
+*/
