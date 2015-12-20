@@ -4,6 +4,19 @@ android {
     compileSdkVersion 18
     buildToolsVersion "23.0.2"
 
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+    }
+
     defaultConfig {
         applicationId "org.dani.medicbook"
         minSdkVersion 18
@@ -22,5 +35,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
+    compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:18.0.0'
 }

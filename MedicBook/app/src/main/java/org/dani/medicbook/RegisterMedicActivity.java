@@ -11,7 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.dani.medicbook.controller.ControllerMedicRegister;
+
+import java.io.IOException;
 
 import static org.dani.medicbook.model.Constants.RESULTADO_CARGAR_IMAGEN;
 
@@ -40,11 +46,10 @@ public class RegisterMedicActivity extends ActionBarActivity
     {
         switch (item.getItemId())
         {
-            case R.id.action_settings:
+             case R.id.action_settings:
                 Intent intent = new Intent(this, ConfigurationActivity.class);
                 startActivity(intent);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

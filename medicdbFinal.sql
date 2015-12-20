@@ -3,155 +3,103 @@ USE MedicDB;
 
 CREATE TABLE Medic
 (
-	collegiateNumber INT(10) UNSIGNED PRIMARY KEY,
-	userName VARCHAR(20) NOT NULL,
-	userPasword VARCHAR(16)	NOT NULL,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL,
+	Pas VARCHAR(16)	NOT NULL,
 	name VARCHAR(20) NOT NULL,
 	surname VARCHAR(30) NOT NULL,
 	adress VARCHAR(100) NOT NULL,
-	medicalCentre VARCHAR(100) NOT NULL,
+	med VARCHAR(100) NOT NULL,
 	email VARCHAR(50) NOT NULL,
-	medicalSpeciality VARCHAR(100) NOT NULL,
+	Spec VARCHAR(100) NOT NULL,
 	telephone VARCHAR(100) NOT NULL,
-	birthDate DATE NOT NULL
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Patient
 (
-	cias INT(10) UNSIGNED PRIMARY KEY,
-	patientUser VARCHAR(20) NOT NULL,
-	patientPassword VARCHAR(16) NOT NULL,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL,
+	pas VARCHAR(16) NOT NULL,
 	name VARCHAR(20) NOT NULL,
 	surname	VARCHAR(30) NOT NULL,
 	sex	CHAR(1)	NOT NULL,
 	adress VARCHAR(100)	NOT NULL,
-	birthDate Date NOT NULL,
+	birthdate Date NOT NULL,
 	telephone VARCHAR(100) NOT NULL,
-	bloodType CHAR(2) NULL
+	bloodtype CHAR(2) NULL,
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Radiography
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
-	reportDate DATE NULL,
-	receptionDate DATE NOT NULL,
-	radiographyDate	DATE NOT NULL,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	reportdate DATE NULL,
+	receptiondate DATE NOT NULL,
+	radiographydate	DATE NOT NULL,
 	study VARCHAR(255) NOT NULL,
 	report VARCHAR(255) NULL,
-	controlDone	VARCHAR(255) NOT NULL
+	controldone	VARCHAR(255) NOT NULL,
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Analysis
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
-	analysisDate DATE NOT NULL,
-	analysisType VARCHAR(50) NOT NULL,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	analysisdate DATE NOT NULL,
+	analysistype VARCHAR(50) NOT NULL,
 	report VARCHAR(255) NOT NULL,
-	reportDate DATE NOT NULL
+	reportdate DATE NOT NULL,
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Pharmacotherapy
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	descript VARCHAR(255) NOT NULL,
 	dosage VARCHAR(255) NULL,
-	startDate DATE NOT NULL,
-	endDate DATE NULL,
-	initialWeight FLOAT NULL,
-	finalWeight FLOAT NULL
+	startdate DATE NOT NULL,
+	enddate DATE NULL,
+	initialweight FLOAT NULL,
+	finalweight FLOAT NULL,
+	medicament VARCHAR(100),
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Medicament
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
-	name VARCHAR(30) NOT NULL,
-	composition VARCHAR(100) NOT NULL,
-	formatt VARCHAR(50) NULL,
-	laboratory VARCHAR(50) NOT NULL,
-	prize FLOAT NULL
-);
-
-CREATE TABLE PharmacotherapyMedicament
-(
-	idPharmacotherapy INT UNSIGNED,
-	INDEX(idPharmacotherapy),
-	FOREIGN KEY(idPharmacotherapy)
-		REFERENCES Pharmacotherapy(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idMedicament INT UNSIGNED,
-	INDEX(idMedicament),
-	FOREIGN KEY(idMedicament)
-		REFERENCES Medicament(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	PRIMARY KEY(idPharmacotherapy, idMedicament)
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE  Episodes
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	descript VARCHAR(255) NOT NULL,
-	startDate DATE NOT NULL,
-	endDate DATE NULL,
-	evolution VARCHAR(255) NULL
+	startdate DATE NOT NULL,
+	enddate DATE NULL,
+	evolution VARCHAR(255) NULL,
+	disease VARCHAR(255),
+	idvisit INT(10) UNSIGNED
 );
 
 CREATE TABLE Disease
 (
-	id INT(10) UNSIGNED PRIMARY KEY,
-	name VARCHAR(30) NOT NULL,
-	descr VARCHAR(255) NOT NULL,
-	evolution VARCHAR(255) NULL,
-	treatment VARCHAR(255) NOT NULL,
-	prevention VARCHAR(255)	NULL,
-    diseaseType VARCHAR(100) NULL,
-	pathogenesis VARCHAR(255) NULL
-);
-
-CREATE TABLE EpisodeDisease
-(
-	idEpisode INT UNSIGNED,
-	INDEX(idEpisode),
-	FOREIGN KEY(idEpisode)
-		REFERENCES Episodes(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idDisease INT UNSIGNED,
-	INDEX(idDisease),
-	FOREIGN KEY(idDisease)
-		REFERENCES Disease(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	PRIMARY KEY(idEpisode, idDisease)
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Visit
 (
-	id INT(10) UNSIGNED PRIMARY KEY, 
+	id INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT, 
 	reception Date NULL,
-	visitDate DATE NOT NULL,
+	visitdate DATE NOT NULL,
 	report VARCHAR(255) NULL,
-	medicalCentre VARCHAR(100) NOT NULL,
-	idAnalysis INT UNSIGNED,
-	INDEX(idAnalysis),
-	FOREIGN KEY(idAnalysis)
-		REFERENCES Analysis(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idEpisode INT UNSIGNED,
-	INDEX(idEpisode),
-	FOREIGN KEY(idEpisode)
-		REFERENCES Episodes(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idMedic INT UNSIGNED,
-	INDEX(idMedic),
-	FOREIGN KEY(idMedic)
-		REFERENCES Medic(collegiateNumber)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idPatient INT UNSIGNED,
-	INDEX(idPatient),
-	FOREIGN KEY(idPatient)
-		REFERENCES Patient(cias)
-		ON UPDATE CASCADE ON DELETE CASCADE,
-	idPharmacotherapy INT UNSIGNED,
-	INDEX(idPharmacotherapy),
-	FOREIGN KEY(idPharmacotherapy)
-		REFERENCES Pharmacotherapy(id)
-		ON UPDATE CASCADE ON DELETE CASCADE
+	medicalcentre VARCHAR(100) NOT NULL,
+	idanalysis INT UNSIGNED,
+	idepisode INT UNSIGNED,
+	idmedic INT UNSIGNED,
+	idpatient INT UNSIGNED,
+	idpharmacotherapy INT UNSIGNED,
+	idradiography INT UNSIGNED
 );

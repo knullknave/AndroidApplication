@@ -1,4 +1,4 @@
-package com.android.dani.medicdb;
+package com.android.medicServer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

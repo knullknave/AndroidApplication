@@ -10,13 +10,22 @@
         android:theme="@style/AppTheme" >
 
         <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
         <uses-permission android:name="android.permission.READ_OWNER_DATA" />
         <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.READ_USER_DICTIONARY"></uses-permission>
         <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"></uses-permission>
+
+<!--        <uses-permission android:name="android.permission.android.hardware.wifi" />
+        <uses-permission android:name="android.permission.android.hardware.wifi.direct" />-->
+
+        <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_INTERNET"/>
 
         <activity
             android:name="org.dani.medicbook.LoginActivity"
@@ -27,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+       <activity
             android:name="org.dani.medicbook.RegisterMedicActivity"
             android:label="@string/title_activity_register_medic" >
         </activity>
@@ -42,7 +51,7 @@
         <activity
             android:name="org.dani.medicbook.MainFragmentMedicActivity"
             android:label="@string/title_activity_main_fragment" >
-        </activity>
+        </activity>-->
         <activity
             android:name="org.dani.medicbook.MainFragmentPatientActivity"
             android:label="@string/title_activity_main_fragment_patient" >
