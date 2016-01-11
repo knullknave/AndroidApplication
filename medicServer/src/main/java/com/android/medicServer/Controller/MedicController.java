@@ -32,8 +32,8 @@ public class MedicController
 
     @RequestMapping("/add_medic")
     public void addMedic(
-                         @RequestParam(value = "username", defaultValue = "nada") String userName,
-                         @RequestParam(value = "userpassword", defaultValue = "nada") String userPassword,
+                         @RequestParam(value = "username") String userName,
+                         @RequestParam(value = "userpassword") String userPassword,
                          @RequestParam(value = "name", defaultValue = "nada") String name,
                          @RequestParam(value = "surname", defaultValue = "nada") String surname,
                          @RequestParam(value = "adress", defaultValue = "nada") String adress,

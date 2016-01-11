@@ -34,10 +34,6 @@ public class Patient implements Serializable
     private Date birthdate;
     @Column(name = "telephone")
     private String telephone;
-    @Column(name = "bloodtype")
-    private char bloodtype;
-    @Column(name = "idvisit")
-    private int idvisit;
 
     public Patient()
     {
@@ -122,21 +118,5 @@ public class Patient implements Serializable
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public char getBloodtype() {
-        return bloodtype;
-    }
-
-    public void setBloodtype(char bloodtype) {
-        this.bloodtype = bloodtype;
-    }
-
-    public int getIdvisit() {
-        return idvisit;
-    }
-
-    public void setIdvisit(int idvisit) {
-        this.idvisit = idvisit;
     }
 }
