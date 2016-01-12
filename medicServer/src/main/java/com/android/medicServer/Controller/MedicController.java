@@ -24,7 +24,7 @@ public class MedicController
     }
 
     @RequestMapping("/medico")
-    public List<Medic> findById(int id)
+    public List<Medic> findById(@RequestParam(value = "id")int id)
     {
         List<Medic> listaMedicos = repository.findById(id);
         return listaMedicos;
