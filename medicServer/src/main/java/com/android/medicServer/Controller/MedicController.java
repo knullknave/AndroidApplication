@@ -56,8 +56,36 @@ public class MedicController
         repository.save(m);
     }
 
+    @RequestMapping("/update_medic")
+    public void addMedic(
+            @RequestParam(value = "id") String id,
+            @RequestParam(value = "username") String userName,
+            @RequestParam(value = "userpassword") String userPassword,
+            @RequestParam(value = "name", defaultValue = "nada") String name,
+            @RequestParam(value = "surname", defaultValue = "nada") String surname,
+            @RequestParam(value = "adress", defaultValue = "nada") String adress,
+            @RequestParam(value = "medicalcentre", defaultValue = "nada") String medicalCentre,
+            @RequestParam(value = "email", defaultValue = "nada") String email,
+            @RequestParam(value = "medicalspeciality", defaultValue = "nada") String medicalSpeciality,
+            @RequestParam(value = "telephone", defaultValue = "nada") String telephone)
+    {
+        Medic m = new Medic();
+        m.setId(Integer.valueOf(id));
+        m.setUsername(userName);
+        m.setPas(userPassword);
+        m.setName(name);
+        m.setSurname(surname);
+        m.setAdress(adress);
+        m.setMed(medicalCentre);
+        m.setEmail(email);
+        m.setSpec(medicalSpeciality);
+        m.setTelephone(telephone);
+
+        repository.save(m);
+    }
+
     @RequestMapping("/delete_medic")
-    public void deleteMedic2(int id)
+    public void deleteMedic(int id)
     {
         repository.delete(id);
     }

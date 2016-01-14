@@ -14,7 +14,7 @@ public class Visit implements Serializable
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
     @Column(name = "report")
     private String report;
     @Column(name = "medicalcentre")
@@ -40,12 +40,12 @@ public class Visit implements Serializable
 
     }
 
-    public Long getId()
+    public int getId()
     {
         return id;
     }
 
-    public void setId(Long id)
+    public void setId(int id)
     {
         this.id = id;
     }
