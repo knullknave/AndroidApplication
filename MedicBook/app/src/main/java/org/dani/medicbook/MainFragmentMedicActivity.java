@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import org.dani.medicbook.controller.TabListener;
 
@@ -22,6 +23,11 @@ public class MainFragmentMedicActivity extends ActionBarActivity
     static Fragment newCs = new NewConsultMedicActivity();
     static Fragment infosM = new InfoMedicActivity();
     public int medico;
+
+    public String name;
+
+    private static final int CODIGO_ACTIVIDAD = 1;
+    private static final int PRIMERA_ACTIVIDAD = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,5 +56,22 @@ public class MainFragmentMedicActivity extends ActionBarActivity
 
         Bundle extras = getIntent().getExtras();
         medico = extras.getInt("Medico");
+
+        name = "";
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == CODIGO_ACTIVIDAD)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                String nombre = data.getStringExtra("centro");
+                name = nombre;
+            }
+        }
     }
 }

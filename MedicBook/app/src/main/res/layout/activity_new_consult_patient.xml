@@ -25,8 +25,8 @@
             android:text="@string/selectmedcentre"
             android:id="@+id/btnCentre"
             android:layout_marginTop="44dp"
-            android:layout_below="@+id/editText15"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/editText14" />
 
         <Button
             android:layout_width="wrap_content"
@@ -46,19 +46,8 @@
             android:layout_marginTop="154dp"
             android:layout_alignParentTop="true"
             android:text="@string/visitdate"
-            android:layout_alignStart="@+id/editText15"
-            android:layout_alignEnd="@+id/editText15" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText15"
-            android:layout_marginTop="36dp"
-            android:layout_below="@+id/editText14"
-            android:layout_alignEnd="@+id/btnCentre"
             android:layout_alignStart="@+id/btnCentre"
-            android:editable="true"
-            android:enabled="true" />
+            android:layout_alignEnd="@+id/btnCentre" />
 
         <Spinner
             android:layout_width="wrap_content"

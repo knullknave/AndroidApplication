@@ -2,8 +2,11 @@ package org.dani.medicbook;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
 
 import org.dani.medicbook.controller.TabListener;
 
@@ -14,6 +17,11 @@ public class MainFragmentPatientActivity extends ActionBarActivity
     Fragment newCs = new NewConsultPatientActivity();
     Fragment infosP = new InfoPatientActivity();
     public int paciente;
+
+    public String name;
+
+    private static final int CODIGO_ACTIVIDAD = 1;
+    private static final int PRIMERA_ACTIVIDAD = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,5 +51,22 @@ public class MainFragmentPatientActivity extends ActionBarActivity
 
         Bundle extras = getIntent().getExtras();
         paciente = extras.getInt("Paciente");
+
+        name = "";
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == CODIGO_ACTIVIDAD)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                String nombre = data.getStringExtra("centro");
+                name = nombre;
+            }
+        }
     }
 }

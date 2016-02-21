@@ -19,7 +19,6 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
 {
     public View rootView;
     public EditText editText14;
-    public EditText editText15;
     public Button btnAccept;
     public Button btnCentre;
     public Spinner spinner2;
@@ -34,7 +33,6 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
         rootView = inflater.inflate(R.layout.activity_new_consult_patient, container, false);
 
         editText14 = (EditText) rootView.findViewById(R.id.editText14);
-        editText15 = (EditText) rootView.findViewById(R.id.editText15);
         btnAccept = (Button) rootView.findViewById(R.id.btnAccept);
         btnAccept.setOnClickListener(this);
         btnCentre = (Button) rootView.findViewById(R.id.btnCentre);
@@ -58,10 +56,12 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
         switch(v.getId())
         {
             case R.id.btnAccept:
-                if(spinner2.getCount() > 0 && !editText14.getText().equals("") && !editText15.getText().equals(""))
+                MainFragmentPatientActivity activity = (MainFragmentPatientActivity) getActivity();
+                String name = activity.name;
+                if(spinner2.getCount() > 0 && !editText14.getText().equals("") && !name.equals(""))
                 {
                     int idPatient = ((Medic) spinner2.getSelectedItem()).getId();
-                    ThreadAddVisitPatient tavp = new ThreadAddVisitPatient(this, this.id, editText14.getText().toString(), editText15.getText().toString(), idPatient);
+                    ThreadAddVisitPatient tavp = new ThreadAddVisitPatient(this, this.id, editText14.getText().toString(), name, idPatient);
                     tavp.execute();
                 }
                 else
@@ -74,20 +74,6 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
                 getActivity().startActivityForResult(intent, CODIGO_ACTIVIDAD);
             default:
                 break;
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == getActivity().RESULT_OK)
-        {
-            Uri dato = data.getData();
-            String nombre = data.getDataString();
-            Toast.makeText(getActivity(), nombre, Toast.LENGTH_LONG).show();
-            editText15.setText(nombre);
         }
     }
 }
