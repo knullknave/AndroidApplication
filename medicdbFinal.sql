@@ -13,7 +13,7 @@ CREATE TABLE Medic
 	email VARCHAR(50) NOT NULL,
 	Spec VARCHAR(100) NOT NULL,
 	telephone VARCHAR(100) NOT NULL,
-	idvisit INT(10) UNSIGNED
+	idfoto INT UNSIGNED NULL
 );
 
 CREATE TABLE Patient
@@ -28,7 +28,7 @@ CREATE TABLE Patient
 	birthdate Date NOT NULL,
 	telephone VARCHAR(100) NOT NULL,
 	bloodtype CHAR(2) NULL,
-	idvisit INT(10) UNSIGNED
+	idfoto INT UNSIGNED NULL
 );
 
 CREATE TABLE Radiography
@@ -39,8 +39,7 @@ CREATE TABLE Radiography
 	radiographydate	DATE NOT NULL,
 	study VARCHAR(255) NOT NULL,
 	report VARCHAR(255) NULL,
-	controldone	VARCHAR(255) NOT NULL,
-	idvisit INT(10) UNSIGNED
+	controldone	VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Analysis
@@ -49,8 +48,7 @@ CREATE TABLE Analysis
 	analysisdate DATE NOT NULL,
 	analysistype VARCHAR(50) NOT NULL,
 	report VARCHAR(255) NOT NULL,
-	reportdate DATE NOT NULL,
-	idvisit INT(10) UNSIGNED
+	reportdate DATE NOT NULL
 );
 
 CREATE TABLE Pharmacotherapy
@@ -62,8 +60,7 @@ CREATE TABLE Pharmacotherapy
 	enddate DATE NULL,
 	initialweight FLOAT NULL,
 	finalweight FLOAT NULL,
-	medicament VARCHAR(100),
-	idvisit INT(10) UNSIGNED
+	medicament VARCHAR(100)
 );
 
 CREATE TABLE Medicament
@@ -79,8 +76,7 @@ CREATE TABLE  Episodes
 	startdate DATE NOT NULL,
 	enddate DATE NULL,
 	evolution VARCHAR(255) NULL,
-	disease VARCHAR(255),
-	idvisit INT(10) UNSIGNED
+	disease VARCHAR(255)
 );
 
 CREATE TABLE Disease
@@ -96,12 +92,12 @@ CREATE TABLE Visit
 	visitdate DATE NOT NULL,
 	report VARCHAR(255) NULL,
 	medicalcentre VARCHAR(100) NOT NULL,
-	idanalysis INT UNSIGNED,
-	idepisode INT UNSIGNED,
-	idmedic INT UNSIGNED,
-	idpatient INT UNSIGNED,
-	idpharmacotherapy INT UNSIGNED,
-	idradiography INT UNSIGNED
+	idanalysis INT UNSIGNED NULL,
+	idepisode INT UNSIGNED NULL,
+	idmedic INT UNSIGNED NULL,
+	idpatient INT UNSIGNED NULL,
+	idpharmacotherapy INT UNSIGNED NULL,
+	idradiography INT UNSIGNED NULL
 );
 
 CREATE TABLE centros
@@ -150,16 +146,3 @@ INSERT INTO centros(name, positionx, positiony, icon) VALUES ("Consultorio El Zo
 INSERT INTO centros(name, positionx, positiony, icon) VALUES ("Consultorio Hermanos Ibarra", 41.650832, -0.876984, "http://www.zaragoza.es/contenidos/iconos/sanidadYconsumo.png");
 INSERT INTO centros(name, positionx, positiony, icon) VALUES ("Hospital Nuestra Señora de Gracia", 41.652337, -0.888114, "http://www.zaragoza.es/contenidos/iconos/sanidadYconsumo.png");
 INSERT INTO centros(name, positionx, positiony, icon) VALUES ("Hospital Universitario Miguel Servet", 41.634969, -0.900007, "http://www.zaragoza.es/contenidos/iconos/sanidadYconsumo.png");
-
-
-
-
-
-
-
-
-
-
-
-
-

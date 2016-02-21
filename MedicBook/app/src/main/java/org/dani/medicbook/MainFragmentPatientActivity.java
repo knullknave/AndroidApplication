@@ -13,6 +13,7 @@ public class MainFragmentPatientActivity extends ActionBarActivity
     Fragment consults = new ConsultsPatientActivity();
     Fragment newCs = new NewConsultPatientActivity();
     Fragment infosP = new InfoPatientActivity();
+    public int paciente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,12 +21,13 @@ public class MainFragmentPatientActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_fragment_medic);
 
+        getFragmentManager().findFragmentById(R.id.spinner);
+
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setIcon(R.drawable.ic_setting_bar_1);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        //TODO SET ICON FOR ACTION BAR AND ACTIONS FOR IT
 
         consult = actionBar.newTab().setText(R.string.consults);
         newC = actionBar.newTab().setText(R.string.newconsult);
@@ -38,5 +40,8 @@ public class MainFragmentPatientActivity extends ActionBarActivity
         actionBar.addTab(consult);
         actionBar.addTab(newC);
         actionBar.addTab(infoM);
+
+        Bundle extras = getIntent().getExtras();
+        paciente = extras.getInt("Paciente");
     }
 }

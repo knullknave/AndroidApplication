@@ -73,14 +73,6 @@
                 android:id="@+id/etAddress"
                 android:text="@string/address" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/etEmail"
-                android:text="@string/email" />
-
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="fill_parent"
@@ -111,14 +103,6 @@
                 </RadioGroup>
             </TableRow>
             </TableLayout>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/etPostalCode"
-                android:text="@string/postalcode" />
 
             <EditText
                 android:layout_width="match_parent"

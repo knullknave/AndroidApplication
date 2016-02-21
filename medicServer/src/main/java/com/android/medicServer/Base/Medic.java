@@ -36,6 +36,8 @@ public class Medic implements Serializable
     private String spec;
     @Column(name = "telephone")
     private String telephone;
+    @Column(name = "idfoto")
+    private int idFoto;
 
     public Medic()
     {
@@ -120,5 +122,15 @@ public class Medic implements Serializable
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public int getIdFoto()
+    {
+        return idFoto;
+    }
+
+    public void setIdFoto(int idFoto)
+    {
+        this.idFoto = idFoto;
     }
 }

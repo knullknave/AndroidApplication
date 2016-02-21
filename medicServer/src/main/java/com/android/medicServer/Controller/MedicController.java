@@ -24,7 +24,7 @@ public class MedicController
     }
 
     @RequestMapping("/medico")
-    public List<Medic> findById(@RequestParam(value = "id")int id)
+    public List<Medic> findById(int id)
     {
         List<Medic> listaMedicos = repository.findById(id);
         return listaMedicos;
@@ -32,15 +32,16 @@ public class MedicController
 
     @RequestMapping("/add_medic")
     public void addMedic(
-                         @RequestParam(value = "username") String userName,
-                         @RequestParam(value = "userpassword") String userPassword,
+                         @RequestParam(value = "username", defaultValue = "nada") String userName,
+                         @RequestParam(value = "userpassword", defaultValue = "nada") String userPassword,
                          @RequestParam(value = "name", defaultValue = "nada") String name,
                          @RequestParam(value = "surname", defaultValue = "nada") String surname,
                          @RequestParam(value = "adress", defaultValue = "nada") String adress,
                          @RequestParam(value = "medicalcentre", defaultValue = "nada") String medicalCentre,
                          @RequestParam(value = "email", defaultValue = "nada") String email,
                          @RequestParam(value = "medicalspeciality", defaultValue = "nada") String medicalSpeciality,
-                         @RequestParam(value = "telephone", defaultValue = "nada") String telephone)
+                         @RequestParam(value = "telephone", defaultValue = "nada") String telephone,
+                         @RequestParam(value = "idfoto") String idFoto)
     {
         Medic m = new Medic();
         m.setUsername(userName);
@@ -52,6 +53,7 @@ public class MedicController
         m.setEmail(email);
         m.setSpec(medicalSpeciality);
         m.setTelephone(telephone);
+        m.setIdFoto(Integer.valueOf(idFoto));
 
         repository.save(m);
     }
@@ -67,7 +69,8 @@ public class MedicController
             @RequestParam(value = "medicalcentre", defaultValue = "nada") String medicalCentre,
             @RequestParam(value = "email", defaultValue = "nada") String email,
             @RequestParam(value = "medicalspeciality", defaultValue = "nada") String medicalSpeciality,
-            @RequestParam(value = "telephone", defaultValue = "nada") String telephone)
+            @RequestParam(value = "telephone", defaultValue = "nada") String telephone,
+            @RequestParam(value = "idfoto") String idFoto)
     {
         Medic m = new Medic();
         m.setId(Integer.valueOf(id));
@@ -80,12 +83,13 @@ public class MedicController
         m.setEmail(email);
         m.setSpec(medicalSpeciality);
         m.setTelephone(telephone);
+        m.setIdFoto(Integer.valueOf(idFoto));
 
         repository.save(m);
     }
 
     @RequestMapping("/delete_medic")
-    public void deleteMedic(int id)
+    public void deleteMedic2(int id)
     {
         repository.delete(id);
     }

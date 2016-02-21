@@ -35,8 +35,6 @@ public class Radiography implements Serializable
     @Temporal(TemporalType.DATE)
     @Column(name = "radiographydate")
     private Date radiographydate;
-    @Column(name = "idvisit")
-    private int idvisit;
 
     public Radiography()
     {
@@ -97,13 +95,5 @@ public class Radiography implements Serializable
 
     public void setRadiographydate(Date radiographydate) {
         this.radiographydate = radiographydate;
-    }
-
-    public int getIdvisit() {
-        return idvisit;
-    }
-
-    public void setIdvisit(int idvisit) {
-        this.idvisit = idvisit;
     }
 }

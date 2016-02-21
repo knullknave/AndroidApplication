@@ -2,6 +2,7 @@ package org.dani.medicbook;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import org.dani.medicbook.model.Constants;
 public class RegisterPatientActivity extends ActionBarActivity
 {
     ControllerPatientRegister cpr;
+    public Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -63,6 +65,8 @@ public class RegisterPatientActivity extends ActionBarActivity
             int indice = cursor.getColumnIndex(ruta[0]);
             String picturePath = cursor.getString(indice);
             cursor.close();
+
+            image = BitmapFactory.decodeFile(picturePath);
 
             cpr.imageButton = (ImageButton) findViewById(R.id.imageButton);
             cpr.imageButton.setImageBitmap(BitmapFactory.decodeFile(picturePath));

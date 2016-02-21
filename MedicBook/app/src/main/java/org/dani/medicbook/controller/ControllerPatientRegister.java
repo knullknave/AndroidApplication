@@ -1,14 +1,19 @@
 package org.dani.medicbook.controller;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import org.dani.medicbook.R;
 import org.dani.medicbook.RegisterPatientActivity;
+import org.dani.medicbook.database.DataBaseManager;
 import org.dani.medicbook.model.Constants;
 
 public class ControllerPatientRegister implements View.OnClickListener
@@ -22,11 +27,12 @@ public class ControllerPatientRegister implements View.OnClickListener
     private EditText etSurname;
     private EditText etPhone;
     private EditText etAddress;
-    private EditText etEmail;
     //TODO CONJUNTO DE RADIO BUTTON
-    private EditText etPostalCode;
     private EditText etBirthDate;
     public ImageButton imageButton;
+    public RadioButton rdbOne;
+    public RadioButton rdbTwo;
+    public String url;
 
     public ControllerPatientRegister(RegisterPatientActivity rpa)
     {
@@ -49,12 +55,8 @@ public class ControllerPatientRegister implements View.OnClickListener
         etPhone.setOnClickListener(this);
         etAddress = (EditText) rpa.findViewById(R.id.etAddress);
         etAddress.setOnClickListener(this);
-        etEmail = (EditText) rpa.findViewById(R.id.etEmail);
-        etEmail.setOnClickListener(this);
-        //TODO RADIO BUTTON
-        //TODO MIRAR COMO OBTENER EL ELEMENTO SELECCIONADO
-        etPostalCode = (EditText) rpa.findViewById(R.id.etPostalCode);
-        etPostalCode.setOnClickListener(this);
+        rdbOne = (RadioButton) rpa.findViewById(R.id.rdbOne);
+        rdbTwo = (RadioButton) rpa.findViewById(R.id.rdbTwo);
         etBirthDate = (EditText) rpa.findViewById(R.id.etBirthDate);
         etBirthDate.setOnClickListener(this);
         imageButton = (ImageButton) rpa.findViewById(R.id.imageButton);
@@ -75,10 +77,6 @@ public class ControllerPatientRegister implements View.OnClickListener
             etPhone.setText(rpa.getResources().getString(R.string.phone));
         if(etAddress.getText().toString().trim().equals(""))
             etAddress.setText(rpa.getResources().getString(R.string.address));
-        if(etEmail.getText().toString().trim().equals(""))
-            etEmail.setText(rpa.getResources().getString(R.string.email));
-        if(etPostalCode.getText().toString().trim().equals(""))
-            etPostalCode.setText(rpa.getResources().getString(R.string.postalcode));
         if(etBirthDate.getText().toString().trim().equals(""))
             etBirthDate.setText(rpa.getResources().getString(R.string.birthdate));
 
@@ -94,10 +92,6 @@ public class ControllerPatientRegister implements View.OnClickListener
             etPhone.setText("");
         if(etAddress.getText().toString().trim().equals(rpa.getResources().getString(R.string.address)) && b6 == true)
             etAddress.setText("");
-        if(etEmail.getText().toString().trim().equals(rpa.getResources().getString(R.string.email)) && b7 == true)
-            etEmail.setText("");
-        if(etPostalCode.getText().toString().trim().equals(rpa.getResources().getString(R.string.postalcode)) && b8 == true)
-            etPostalCode.setText("");
         if(etBirthDate.getText().toString().trim().equals(rpa.getResources().getString(R.string.birthdate)) && b9 == true)
             etBirthDate.setText("");;
     }
@@ -108,9 +102,29 @@ public class ControllerPatientRegister implements View.OnClickListener
         switch (v.getId())
         {
             case R.id.btAccept:
-                //TODO REGISTER PATIENT
-                //TODO SHOW TOAST WITH SUCCESSFUL OR ERROR WHEN REGISTER PATIENT
-                rpa.finish();
+
+                DataBaseManager manager = new DataBaseManager(rpa);
+                manager.insertar(rpa.image, "Paciente");
+                Cursor cursor = manager.cargarCursorFotos();
+
+                cursor.moveToLast();
+
+                int id = Integer.valueOf(cursor.getString(0));
+
+                String sex;
+                if(rdbOne.isChecked())
+                    sex = "H";
+                else
+                    sex = "M";
+                url = "/add_patient?username=" + etUser.getText().toString().trim() + "&userpassword=" + etPassword.getText().toString().trim() + "&name=" + etName.getText().toString().trim() + "&surname=" +
+                        etSurname.getText().toString().trim() + "&sex=" + sex + "&adress=" + etAddress.getText().toString().trim() + "&birthdate="+ etBirthDate.getText().toString().trim() + "&telephone=" +
+                        etPhone.getText().toString().trim() + "&idfoto=" + id;
+                String SERVER_URL = "http://192.168.2.6:8080";
+                String urlFull = SERVER_URL + url;
+
+                ThreadAddPatient test = new ThreadAddPatient(rpa, urlFull, SERVER_URL + "/pacientes", etUser.getText().toString().trim(), this);
+                test.execute();
+
                 break;
             case R.id.btCancel:
                 rpa.finish();
@@ -136,10 +150,6 @@ public class ControllerPatientRegister implements View.OnClickListener
             case R.id.etEmail:
                 setValues(false, false, false, false, false, false, true, false, false);
                 break;
-            //TODO RADIO BUTTON
-            case R.id.etPostalCode:
-                setValues(false, false, false, false, false, false, false, true, false);
-                break;
             case R.id.etBirthDate:
                 setValues(false, false, false, false, false, false, false, false, true);
                 break;
@@ -149,5 +159,4 @@ public class ControllerPatientRegister implements View.OnClickListener
                 break;
         }
     }
-    //TODO AÑADIR AL MANIFEST LOS PERMISOS PARA OBTENER DATOS DE LA MEMORIA DEL DISPOSITIVO
 }

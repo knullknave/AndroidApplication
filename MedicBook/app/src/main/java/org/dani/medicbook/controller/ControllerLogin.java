@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.dani.medicbook.LoginActivity;
 import org.dani.medicbook.MainFragmentMedicActivity;
@@ -63,26 +64,25 @@ public class ControllerLogin implements View.OnClickListener, AdapterView.OnItem
             case R.id.btnLogin:
                 if(posSpinner.equals(la.getResources().getString(R.string.whoareyou)))
                 {
-                    //TODO ERROR
+                    Toast.makeText(la, "Please choose medic or patient", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    //TODO DO NOT LET TO INTRODUCE SPACeS
                     if(etUser.getText().toString().trim().equals("") || etPassword.getText().toString().trim().equals(""))
                     {
-                        //TODO PLEASE FILL EACH FIELD
+                        Toast.makeText(la, "Please fill each fields", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
                         if(posSpinner.equals(la.getResources().getString(R.string.patient)))
                         {
-                            Intent intent2 = new Intent(la, MainFragmentPatientActivity.class);
-                            la.startActivity(intent2);
+                            ThreadCheckPatient tcp = new ThreadCheckPatient(this, la, etUser.getText().toString().trim(), etPassword.getText().toString().trim());
+                            tcp.execute();
                         }
                         else
                         {
-                            Intent intent = new Intent(la, MainFragmentMedicActivity.class);
-                            la.startActivity(intent);
+                            ThreadCheckMedic tcm = new ThreadCheckMedic(this, la, etUser.getText().toString().trim(), etPassword.getText().toString().trim());
+                            tcm.execute();
                         }
                     }
                 }

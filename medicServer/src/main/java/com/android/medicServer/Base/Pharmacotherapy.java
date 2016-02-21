@@ -34,8 +34,6 @@ public class Pharmacotherapy implements Serializable
     private float finalWeight;
     @Column(name = "medicament")
     private String medicament;
-    @Column(name = "idvisit")
-    private int idvisit;
 
     public Pharmacotherapy()
     {
@@ -94,14 +92,6 @@ public class Pharmacotherapy implements Serializable
 
     public void setMedicament(String medicament) {
         this.medicament = medicament;
-    }
-
-    public int getIdvisit() {
-        return idvisit;
-    }
-
-    public void setIdvisit(int idvisit) {
-        this.idvisit = idvisit;
     }
 
     public float getInitialWeight()

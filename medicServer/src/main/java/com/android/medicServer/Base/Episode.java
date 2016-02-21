@@ -34,8 +34,6 @@ public class Episode implements Serializable
     private String evolution;
     @Column(name = "disease")
     private String disease;
-    @Column(name = "idvisit")
-    private int idvisit;
 
     public int getId() {
         return id;
@@ -83,13 +81,5 @@ public class Episode implements Serializable
 
     public void setDisease(String disease) {
         this.disease = disease;
-    }
-
-    public int getIdvisit() {
-        return idvisit;
-    }
-
-    public void setIdvisit(int idvisit) {
-        this.idvisit = idvisit;
     }
 }

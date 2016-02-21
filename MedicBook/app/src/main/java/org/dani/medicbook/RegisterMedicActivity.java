@@ -2,6 +2,7 @@ package org.dani.medicbook;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import static org.dani.medicbook.model.Constants.RESULTADO_CARGAR_IMAGEN;
 public class RegisterMedicActivity extends ActionBarActivity
 {
     ControllerMedicRegister cmr;
+    public Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -68,6 +70,8 @@ public class RegisterMedicActivity extends ActionBarActivity
             int indice = cursor.getColumnIndex(ruta[0]);
             String picturePath = cursor.getString(indice);
             cursor.close();
+
+            image = BitmapFactory.decodeFile(picturePath);
 
             cmr.imageButton = (ImageButton) findViewById(R.id.imageButton);
             cmr.imageButton.setImageBitmap(BitmapFactory.decodeFile(picturePath));

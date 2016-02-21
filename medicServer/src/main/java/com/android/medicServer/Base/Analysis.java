@@ -28,8 +28,6 @@ public class Analysis implements Serializable
     @Temporal(TemporalType.DATE)
     @Column(name = "reportdate")
     private Date reportDate;
-    @Column(name = "idvisit")
-    private int idvisit;
 
     public Analysis()
     {
@@ -76,13 +74,5 @@ public class Analysis implements Serializable
     public void setReportDate(Date reportDate)
     {
         this.reportDate = reportDate;
-    }
-
-    public int getIdvisit() {
-        return idvisit;
-    }
-
-    public void setIdvisit(int idvisit) {
-        this.idvisit = idvisit;
     }
 }

@@ -1,6 +1,7 @@
 package org.dani.medicbook.controller;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import org.apache.http.protocol.HttpContext;
 import org.dani.medicbook.LoginActivity;
 import org.dani.medicbook.R;
 import org.dani.medicbook.RegisterMedicActivity;
+import org.dani.medicbook.base.Medic;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -37,64 +39,24 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Daniel on 20/12/2015.
- */
-public class RunTest extends AsyncTask<URL, Integer, Long>
+public class ThreadAddMedic extends AsyncTask<URL, Integer, Long>
 {
-    ControllerMedicRegister  cmr;
-    RegisterMedicActivity rma;
+    private RegisterMedicActivity rma;
+    private String url;
+    public Medic[] m;
+    public String user;
+    public String urlFull;
+    public ControllerMedicRegister cmr;
+    public boolean sw;
 
-    public RunTest(ControllerMedicRegister cmr, RegisterMedicActivity rma)
+    public ThreadAddMedic(RegisterMedicActivity rma, String urlFull, String url, String user, ControllerMedicRegister cmr)
     {
-        this.cmr = cmr;
         this.rma = rma;
-    }
-
-    @Deprecated
-    public boolean insert()
-    {
-        HttpClient httpClient;
-        List<NameValuePair> nameValuePairs;
-        HttpPost httpPost;
-
-        httpClient = new DefaultHttpClient();
-        httpPost = new HttpPost("http://10.0.2.2:8080/add_medic");
-        nameValuePairs = new ArrayList<NameValuePair>(9);
-        nameValuePairs.add(new BasicNameValuePair("userName", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("userPassword", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("name", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("surname", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("adress", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("medicalCentre", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("email", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("medicalSpeciality", "aaaaa"));
-        nameValuePairs.add(new BasicNameValuePair("telephone", "aaaaa"));
-
-        try
-        {
-            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-            httpPost.getParams();
-
-            httpClient.execute(httpPost);
-
-            return true;
-        }
-        catch (UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
-        }
-        catch (ClientProtocolException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        return false;
+        this.user = user;
+        this.url = url;
+        this.cmr = cmr;
+        this.urlFull = urlFull;
+        this.sw = false;
     }
 
     public boolean insert2(String url)
@@ -113,19 +75,66 @@ public class RunTest extends AsyncTask<URL, Integer, Long>
         return false;
     }
 
+    public boolean insert3(String url)
+    {
+        try
+        {
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+            this.m = restTemplate.getForObject(url, Medic[].class);
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean search()
+    {
+        for (int i = 0; i < m.length; i++)
+        {
+            if (user.equals(m[i].getUsername()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     protected Long doInBackground(URL... params)
     {
-        if(insert2("http://192.168.2.6:8080/add_medic?username=a&userpassword=a&name=a&surname=a&adress=a&medicalcentre=a&email=a&medicalspeciality=a&telephone=a"))
+        insert3(url);
+
+        sw = search();
+
+        if (sw == false)
         {
-            rma.runOnUiThread(new Runnable()
+            if (insert2(urlFull))
             {
-                @Override
-                public void run()
+                rma.runOnUiThread(new Runnable()
                 {
-                    Toast.makeText(rma, "Exito", Toast.LENGTH_LONG).show();
-                }
-            });
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(rma, rma.getResources().getString(R.string.successful), Toast.LENGTH_LONG).show();
+                    }
+                });
+                rma.finish();
+            }
+            else
+            {
+                rma.runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(rma, rma.getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         }
         else
         {
@@ -134,7 +143,7 @@ public class RunTest extends AsyncTask<URL, Integer, Long>
                 @Override
                 public void run()
                 {
-                    Toast.makeText(rma, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(rma, rma.getResources().getString(R.string.thisuseralreadyexists), Toast.LENGTH_SHORT).show();
                 }
             });
         }

@@ -5,7 +5,7 @@
     <string name="register_patient">Registrar Paciente</string>
     <string name="login">Login</string>
     <string name="user">Nombre de usuario</string>
-    <string name="title_activity_register_medic">RegisterMedicActivity</string>
+    <string name="title_activity_register_medic" translatable="false">RegisterMedicActivity</string>
     <string name="password">Contraseña</string>
     <string name="name">Nombre</string>
     <string name="surname">Apellidos</string>
@@ -18,31 +18,44 @@
     <string name="medicalcentre">Centro médico</string>
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
-    <string name="title_activity_register_patient">RegisterPatientActivity</string>
+    <string name="title_activity_register_patient" translatable="false">RegisterPatientActivity</string>
     <string name="medic">Médico</string>
     <string name="patient">Paciente</string>
     <string name="whoareyou">¿Quién eres?</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
     <string name="settings">Configuración</string>
-    <string name="title_activity_configuration">ConfigurationActivity</string>
-    <string name="title_activity_fragment_test">FragmentTestActivity</string>
-    <string name="title_activity_main_fragment_test">MainFragmentTestActivity</string>
-    <string name="title_activity_main_fragment">MainFragmentActivity</string>
-    <string name="title_activity_consults">ConsultsActivity</string>
+    <string name="title_activity_configuration" translatable="false">ConfigurationActivity</string>
+    <string name="title_activity_fragment_test" translatable="false">FragmentTestActivity</string>
+    <string name="title_activity_main_fragment_test" translatable="false">MainFragmentTestActivity</string>
+    <string name="title_activity_main_fragment" translatable="false">MainFragmentActivity</string>
+    <string name="title_activity_consults" translatable="false">ConsultsActivity</string>
     <string name="consults">Consultas</string>
-    <string name="title_activity_new_medic">NewMedicActivity</string>
-    <string name="title_activity_info_medic">InfoMedicActivity</string>
+    <string name="title_activity_new_medic" translatable="false">NewMedicActivity</string>
+    <string name="title_activity_info_medic" translatable="false">InfoMedicActivity</string>
     <string name="newconsult">Nuevo</string>
     <string name="infomedic">Información del médico</string>
     <string name="visitdate">Fecha de visita</string>
     <string name="selectmedcentre">Seleccione un centro médico</string>
-    <string name="title_activity_main_fragment_patient">MainFragmentPatientActivity</string>
-    <string name="title_activity_consults_patient">ConsultsPatientActivity</string>
-    <string name="title_activity_new_consult_patient">NewConsultPatientActivity</string>
-    <string name="title_activity_info_patient">InfoPatientActivity</string>
+    <string name="title_activity_main_fragment_patient" translatable="false">MainFragmentPatientActivity</string>
+    <string name="title_activity_consults_patient" translatable="false">ConsultsPatientActivity</string>
+    <string name="title_activity_new_consult_patient" translatable="false">NewConsultPatientActivity</string>
+    <string name="title_activity_info_patient" translatable="false">InfoPatientActivity</string>
     <string name="infopatient">Información del paciente</string>
     <string name="about">Acerca de</string>
-    <string name="title_activity_about">AboutActivity</string>
-    <string name="title_activity_prueba_fondo">PruebaFondo</string>
+    <string name="title_activity_about" translatable="false">AboutActivity</string>
+    <string name="title_activity_prueba_fondo" translatable="false">PruebaFondo</string>
+    <string name="error">Error</string>
+    <string name="successful">Éxito</string>
+    <string name="thisuseralreadyexists">Este usuario ya existe</string>
+    <string name="userandpassworng">El nombre de usuario y la contraseña son incorrectos</string>
+    <string name="pickpatient">Seleccione un paciente</string>
+    <string name="title_activity_meddic_map" translatable="false">MeddicMapActivity</string>
+    <string name="title_activity_activity_medic_map" translatable="false">activity_medic_map</string>
+    <string name="title_activity_activity_patient_map" translatable="false">activity_patient_map</string>
+    <string name="delete">Eliminar</string>
+    <string name="areyousure">¿Estas seguro?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="about_info">Esta aplicación ha sido diseñada por Daniel Cano Mainar.\nFue diseñada con el fin de poder proporcionar una ayuda para todos aquellos médicos y pacientes que puedan necesitar una herramienta para poder desempeñar de una manera mucho mas sencilla su trabajo\n\n\nCualquier tipo de ayuda que puedan necesitar, por favor visiten la página de github</string>
 </resources>

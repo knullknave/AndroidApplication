@@ -1,133 +1,116 @@
 package org.dani.medicbook.base;
 
-import java.util.Date;
-
 public class Medic
 {
-    private int collegiateNumber;
-    private String userName;
-    private String userPassword;
+    private int id;
+    private String username;
+    private String pas;
     private String name;
     private String surname;
     private String adress;
-    private String medicalCentre;
+    private String med;
     private String email;
-    private String medicalSpeciality;
+    private String spec;
     private String telephone;
-    private Date birthDate;
+    private int idFoto;
 
     public Medic()
     {
 
     }
 
-    public int getCollegiateNumber()
-    {
-        return collegiateNumber;
+    public int getId() {
+        return id;
     }
 
-    public void setCollegiateNumber(int collegiateNumber)
-    {
-        this.collegiateNumber = collegiateNumber;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getUserName()
-    {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName)
-    {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserPassword()
-    {
-        return userPassword;
+    public String getPas() {
+        return pas;
     }
 
-    public void setUserPassword(String userPassword)
-    {
-        this.userPassword = userPassword;
+    public void setPas(String pas) {
+        this.pas = pas;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getSurname()
-    {
+    public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname)
-    {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public String getAdress()
-    {
+    public String getAdress() {
         return adress;
     }
 
-    public void setAdress(String adress)
-    {
+    public void setAdress(String adress) {
         this.adress = adress;
     }
 
-    public String getMedicalCentre()
-    {
-        return medicalCentre;
+    public String getMed() {
+        return med;
     }
 
-    public void setMedicalCentre(String medicalCentre)
-    {
-        this.medicalCentre = medicalCentre;
+    public void setMed(String med) {
+        this.med = med;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getMedicalSpeciality()
-    {
-        return medicalSpeciality;
+    public String getSpec() {
+        return spec;
     }
 
-    public void setMedicalSpeciality(String medicalSpeciality)
-    {
-        this.medicalSpeciality = medicalSpeciality;
+    public void setSpec(String spec) {
+        this.spec = spec;
     }
 
-    public String getTelephone()
-    {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone)
-    {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    public Date getBirthDate()
+    public String toString()
     {
-        return birthDate;
+        return this.surname + ", " + this.name + "(" + this.id + ")";
     }
 
-    public void setBirthDate(Date birthDate)
+    public int getIdFoto()
     {
-        this.birthDate = birthDate;
+        return idFoto;
+    }
+
+    public void setIdFoto(int idFoto)
+    {
+        this.idFoto = idFoto;
     }
 }

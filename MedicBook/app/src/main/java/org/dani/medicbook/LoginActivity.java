@@ -1,14 +1,18 @@
 package org.dani.medicbook;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.dani.medicbook.controller.ControllerLogin;
-import org.dani.medicbook.database.SQLiteDB;
+import org.dani.medicbook.database.DataBaseManager;
+import org.dani.medicbook.database.DataBaseManager2;
+import org.dani.medicbook.database.DbHelper;
 
 public class LoginActivity extends ActionBarActivity
 {
@@ -18,14 +22,8 @@ public class LoginActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        SQLiteDB medDBv= new SQLiteDB(this, "medicDB", null, 1);
-        SQLiteDatabase db = medDBv.getWritableDatabase();
-        if(db != null)
-        {
-            db.execSQL("INSERT INTO Medic (userName, userPassword, name, surname, adress, medicalCentre, email, medicalSpeciality, telephone, birthDate) " +
-                    "VALUES ('a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', '10/04/1995')");
-            db.close();
-        }
+        DataBaseManager2 manager = new DataBaseManager2(this);
+        manager.insertar("http://192.168.2.6:8080");
 
         ControllerLogin cl = new ControllerLogin(this);
     }
