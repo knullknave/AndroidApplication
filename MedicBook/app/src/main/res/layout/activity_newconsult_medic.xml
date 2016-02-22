@@ -43,8 +43,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner3"
         android:spinnerMode="dropdown"
-        android:layout_marginTop="63dp"
-        android:layout_below="@+id/btnCentre"
+        android:layout_centerVertical="true"
         android:layout_alignStart="@+id/btnCentre"
         android:layout_alignEnd="@+id/btnCentre" />
 
@@ -64,7 +63,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/pickpatient"
         android:id="@+id/textView17"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/spinner3"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

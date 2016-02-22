@@ -23,7 +23,6 @@ public class LoginActivity extends ActionBarActivity
         setContentView(R.layout.activity_login);
 
         DataBaseManager2 manager = new DataBaseManager2(this);
-        manager.insertar("http://192.168.2.6:8080");
 
         ControllerLogin cl = new ControllerLogin(this);
     }

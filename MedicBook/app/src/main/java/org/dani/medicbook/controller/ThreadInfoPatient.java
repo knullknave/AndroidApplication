@@ -147,7 +147,7 @@ public class ThreadInfoPatient extends AsyncTask<URL, Integer, Long>
 
                         DataBaseManager manager = new DataBaseManager(ipa.getActivity());
                         Cursor cursor = manager.buscarFoto(String.valueOf(idFoto));
-                        if(cursor.getColumnCount() >= idFoto)
+                        if(cursor.getCount() >= idFoto)
                         {
                             cursor.moveToFirst();
                             do

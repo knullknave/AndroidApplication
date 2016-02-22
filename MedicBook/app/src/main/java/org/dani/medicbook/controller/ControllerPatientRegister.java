@@ -14,6 +14,7 @@ import android.widget.Toast;
 import org.dani.medicbook.R;
 import org.dani.medicbook.RegisterPatientActivity;
 import org.dani.medicbook.database.DataBaseManager;
+import org.dani.medicbook.database.DataBaseManager2;
 import org.dani.medicbook.model.Constants;
 
 public class ControllerPatientRegister implements View.OnClickListener
@@ -27,7 +28,6 @@ public class ControllerPatientRegister implements View.OnClickListener
     private EditText etSurname;
     private EditText etPhone;
     private EditText etAddress;
-    //TODO CONJUNTO DE RADIO BUTTON
     private EditText etBirthDate;
     public ImageButton imageButton;
     public RadioButton rdbOne;
@@ -119,7 +119,10 @@ public class ControllerPatientRegister implements View.OnClickListener
                 url = "/add_patient?username=" + etUser.getText().toString().trim() + "&userpassword=" + etPassword.getText().toString().trim() + "&name=" + etName.getText().toString().trim() + "&surname=" +
                         etSurname.getText().toString().trim() + "&sex=" + sex + "&adress=" + etAddress.getText().toString().trim() + "&birthdate="+ etBirthDate.getText().toString().trim() + "&telephone=" +
                         etPhone.getText().toString().trim() + "&idfoto=" + id;
-                String SERVER_URL = "http://192.168.2.6:8080";
+                DataBaseManager2 manager2 = new DataBaseManager2(rpa);
+                Cursor cursor2 = manager2.cargarCursor();
+                cursor2.moveToLast();
+                String SERVER_URL = cursor2.getString(0);
                 String urlFull = SERVER_URL + url;
 
                 ThreadAddPatient test = new ThreadAddPatient(rpa, urlFull, SERVER_URL + "/pacientes", etUser.getText().toString().trim(), this);

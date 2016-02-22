@@ -95,7 +95,7 @@ public class ThreadGetList1  extends AsyncTask<URL, Integer, Long>
                         int idF = p[j].getIdFoto();
 
                         Cursor cursor = manager.cargarCursorFotos();
-                        if(cursor.getColumnCount() >= idF)
+                        if(cursor.getCount() >= idF)
                         {
                             cursor.moveToFirst();
                             do

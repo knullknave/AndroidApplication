@@ -1,5 +1,6 @@
 package org.dani.medicbook.controller;
 
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -9,6 +10,7 @@ import org.dani.medicbook.NewConsultMedicActivity;
 import org.dani.medicbook.R;
 import org.dani.medicbook.base.Medic;
 import org.dani.medicbook.base.Patient;
+import org.dani.medicbook.database.DataBaseManager2;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
@@ -83,7 +85,12 @@ public class ThreadAddVisitMedic extends AsyncTask<URL, Integer, Long>
     {
         if(sw == 0)
         {
-            getPatients("http://192.168.2.6:8080/pacientes");
+            DataBaseManager2 manager2 = new DataBaseManager2(ncma.getActivity());
+            Cursor cursor2 = manager2.cargarCursor();
+            cursor2.moveToLast();
+            String SERVER_URL = cursor2.getString(0);
+
+            getPatients(SERVER_URL + "/pacientes");
             ncma.getActivity().runOnUiThread(new Runnable()
             {
                 @Override
@@ -95,7 +102,12 @@ public class ThreadAddVisitMedic extends AsyncTask<URL, Integer, Long>
         }
         else
         {
-            if(storeVisit("http://192.168.2.6:8080/add_visit?medicalcentre=" + centre + "&visitdate=" + date + "&idMedic=" + id + "&idPatient=" + idPatient))
+            DataBaseManager2 manager2 = new DataBaseManager2(ncma.getActivity());
+            Cursor cursor2 = manager2.cargarCursor();
+            cursor2.moveToLast();
+            String SERVER_URL = cursor2.getString(0);
+
+            if(storeVisit(SERVER_URL + "/add_visit?medicalcentre=" + centre + "&visitdate=" + date + "&idMedic=" + id + "&idPatient=" + idPatient))
             {
                 ncma.getActivity().runOnUiThread(new Runnable() {
                     @Override

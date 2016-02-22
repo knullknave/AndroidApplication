@@ -6,11 +6,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.dani.medicbook.NewConsultMedicActivity;
 import org.dani.medicbook.NewConsultPatientActivity;
 import org.dani.medicbook.R;
 import org.dani.medicbook.base.Medic;
-import org.dani.medicbook.base.Patient;
 import org.dani.medicbook.database.DataBaseManager2;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -34,7 +32,7 @@ public class ThreadAddVisitPatient extends AsyncTask<URL, Integer, Long>
         this.id = id;
         sw = 0;
 
-        spinner = (Spinner) ncpa.rootView.findViewById(R.id.spinner2);
+        spinner = (Spinner) ncpa.rootView.findViewById(R.id.spinnerMedicos);
     }
 
     public ThreadAddVisitPatient(NewConsultPatientActivity ncpa, int id, String date, String centre, int idMedic)
@@ -43,7 +41,7 @@ public class ThreadAddVisitPatient extends AsyncTask<URL, Integer, Long>
         this.id = id;
         sw = 1;
 
-        spinner = (Spinner) ncpa.rootView.findViewById(R.id.spinner2);
+        spinner = (Spinner) ncpa.rootView.findViewById(R.id.spinnerMedicos);
 
         this.date = date;
         this.centre = centre;

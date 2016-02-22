@@ -16,6 +16,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="org.dani.medicbook.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -29,7 +33,7 @@
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBHMTNO4H1m2IhsCSJ2svnbq0MA19wPcw0" />
+            android:value="AIzaSyA3yswONhcvDLyExb3esi-75o1Rne71vt8" />
 
         <activity
             android:name=".LoginActivity"

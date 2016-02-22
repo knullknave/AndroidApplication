@@ -2,7 +2,6 @@ package org.dani.medicbook;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +36,7 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
         btnAccept.setOnClickListener(this);
         btnCentre = (Button) rootView.findViewById(R.id.btnCentre);
         btnCentre.setOnClickListener(this);
-        spinner2 = (Spinner) rootView.findViewById(R.id.spinner2);
+        spinner2 = (Spinner) rootView.findViewById(R.id.spinnerMedicos);
 
         MainFragmentPatientActivity activity = (MainFragmentPatientActivity) getActivity();
         id = activity.paciente;
@@ -58,7 +57,7 @@ public class NewConsultPatientActivity extends Fragment implements View.OnClickL
             case R.id.btnAccept:
                 MainFragmentPatientActivity activity = (MainFragmentPatientActivity) getActivity();
                 String name = activity.name;
-                if(spinner2.getCount() > 0 && !editText14.getText().equals("") && !name.equals(""))
+                if(spinner2.getCount() > 0 && !editText14.getText().toString().equals("") && !name.equals(""))
                 {
                     int idPatient = ((Medic) spinner2.getSelectedItem()).getId();
                     ThreadAddVisitPatient tavp = new ThreadAddVisitPatient(this, this.id, editText14.getText().toString(), name, idPatient);

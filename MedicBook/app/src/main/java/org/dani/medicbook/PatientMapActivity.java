@@ -1,5 +1,6 @@
 package org.dani.medicbook;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import com.google.android.gms.maps.model.Marker;
 import org.dani.medicbook.controller.ThreadMedicMap;
 import org.dani.medicbook.controller.ThreadPatientMap;
 
-public class PatientMapActivity extends ActionBarActivity  implements GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener
+public class PatientMapActivity extends ActionBarActivity  implements GoogleMap.OnInfoWindowClickListener
 {
     public GoogleMap map;
     ThreadPatientMap tpm;
@@ -66,17 +67,9 @@ public class PatientMapActivity extends ActionBarActivity  implements GoogleMap.
     {
         String nombre = marker.getTitle();
 
-        Uri dato = Uri.parse("1");
-
-        Intent resultado = new Intent(null, dato);
-        resultado.putExtra("CentroMedico", nombre);
-        setResult(RESULT_OK, resultado);
+        Intent resultado = getIntent();
+        resultado.putExtra("centro", nombre);
+        setResult(Activity.RESULT_OK, resultado);
         this.finish();
-    }
-
-    @Override
-    public boolean onMarkerClick(Marker marker)
-    {
-        return false;
     }
 }

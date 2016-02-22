@@ -1,5 +1,6 @@
 package org.dani.medicbook.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;

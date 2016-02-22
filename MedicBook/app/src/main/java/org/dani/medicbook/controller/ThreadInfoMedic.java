@@ -141,7 +141,7 @@ public class ThreadInfoMedic extends AsyncTask<URL, Integer, Long>
                         DataBaseManager manager = new DataBaseManager(ima.getActivity());
                         Cursor cursor = manager.cargarCursorFotos();
 
-                        if(cursor.getColumnCount() >= idFoto)
+                        if(cursor.getCount() >= idFoto)
                         {
                             cursor.moveToFirst();
                             do
